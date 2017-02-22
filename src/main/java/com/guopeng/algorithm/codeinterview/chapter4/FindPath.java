@@ -20,7 +20,7 @@ public class FindPath {
     public void findPath(BinaryTreeNode root, int exceptedSum) {
         if (root == null || root.value > exceptedSum) return;
 
-        findSubPath(root, exceptedSum, new Stack<>());
+        findSubPath(root, exceptedSum, new Stack<Integer>());
     }
 
     private void findSubPath(BinaryTreeNode root, int exceptedSum, Stack<Integer> path) {
