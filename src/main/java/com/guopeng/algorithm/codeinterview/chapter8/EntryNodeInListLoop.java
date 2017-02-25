@@ -6,6 +6,15 @@ import com.guopeng.algorithm.codeinterview.utils.LinkedList.ListNode;
  * Created by guopeng on 2017/2/25.
  */
 public class EntryNodeInListLoop {
+    /**
+     * 找到链表环的入口节点
+     *
+     * @param head
+     * @return
+     * @comment 前一个指针速度为2，后一个为1，二者相遇则存在环且该节点在环之内，继续遍历并计数等再次到该节点则得到环中节点个数
+     * 从头到环的首节点需要N步或者N -1 - ( n -1 ) = N-n  n-1为环首节点到末尾的次数
+     * 一个指针先走n然后和后移同时走，二者走N-n步时，一个走了N 一个走了N-n,二者相遇与环首节点
+     */
     public ListNode meetingNode(ListNode head) {
         if (head == null) return null;
 
