@@ -4,6 +4,14 @@ package com.guopeng.algorithm.codeinterview.chapter8;
  * Created by guopeng on 2017/2/25.
  */
 public class ArrayConstruction {
+    /**
+     * 构建乘积数组
+     * bi = a0 * a1 * ... ai-1 * ai+1 * ... an-1
+     *
+     * @param arr
+     * @return
+     * @comment 将乘积拆分 i = a0 * a1 * ... ai-1, di = ai+1 * ... an-1 ,bi = ci *di
+     */
     public int[] arrayConstruction(int[] arr) {
         if (arr == null) return null;
 
