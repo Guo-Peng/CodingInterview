@@ -9,6 +9,14 @@ import java.util.Queue;
  * Created by guopeng on 2017/2/27.
  */
 public class PrintTreeInLines {
+    /**
+     * 按行打印树
+     *
+     * @param root
+     * @return
+     * @comment 先访问的节点的子节点在同一层也被先访问，先入先出，一层遍历结束再遍历下一层
+     * 使用队列保存节点，访问前保存该层子节点的数目
+     */
     public String printTreeInLines(BinaryTreeNode root) {
         String result = "";
         Queue<BinaryTreeNode> queue = new LinkedList<>();
