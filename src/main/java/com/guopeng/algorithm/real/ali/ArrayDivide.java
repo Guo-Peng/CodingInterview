@@ -43,10 +43,6 @@ public class ArrayDivide {
                 }
 
                 if (acc[last] + firstSum == acc[acc.length - 1]) {
-
-                    System.out.println(cur);
-                    System.out.println(next);
-                    System.out.println(last);
                     return true;
                 }
             }
