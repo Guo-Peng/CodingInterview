@@ -23,8 +23,8 @@ public class GetLastCommonParent {
     public BinaryTreeNode getLastCommonParent(BinaryTreeNode root, BinaryTreeNode node1, BinaryTreeNode node2) {
         if (root == null || node1 == null || node2 == null) return null;
 
-        Queue<BinaryTreeNode> path1 = getNodePath(root, node1, new LinkedList<>());
-        Queue<BinaryTreeNode> path2 = getNodePath(root, node2, new LinkedList<>());
+        Queue<BinaryTreeNode> path1 = getNodePath(root, node1, new LinkedList<BinaryTreeNode>());
+        Queue<BinaryTreeNode> path2 = getNodePath(root, node2, new LinkedList<BinaryTreeNode>());
         if (path1 == null || path2 == null) return null;
 
         return getLastCommonNode(path1, path2);
