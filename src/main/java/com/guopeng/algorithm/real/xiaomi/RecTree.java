@@ -63,7 +63,7 @@ public class RecTree {
      * 后序遍历树
      *
      * @param root
-     * @returnu
+     * @return
      * @comment 当前节点无子节点或者有子节点且已被访问过则访问 该节点并将该节点改为pre
      * 该节点不该出栈则依次将右左节点入栈
      */
