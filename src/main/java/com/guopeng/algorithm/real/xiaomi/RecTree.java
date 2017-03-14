@@ -59,6 +59,14 @@ public class RecTree {
         return result;
     }
 
+    /**
+     * 后序遍历树
+     *
+     * @param root
+     * @returnu
+     * @comment 当前节点无子节点或者有子节点且已被访问过则访问 该节点并将该节点改为pre
+     * 该节点不该出栈则依次将右左节点入栈
+     */
     public String postOrder(BinaryTreeNode root) {
         if (root == null) return "";
 
@@ -72,7 +80,7 @@ public class RecTree {
         while (!stack.empty()) {
             cur = stack.peek();
             if (cur.left == null && cur.right == null ||
-                    (pre != null && (pre.equals(cur.left) ||pre.equals( cur.right)))) {
+                    (pre != null && (pre.equals(cur.left) || pre.equals(cur.right)))) {
                 result += stack.pop().value;
                 pre = cur;
             } else {
