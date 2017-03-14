@@ -15,6 +15,14 @@ import java.util.List;
  * Because the range might be a large number, the low and high numbers are represented as string.
  */
 public class StrobogrammaticNumberIII {
+    /**
+     * 计算在区间内部的对称数的个数
+     *
+     * @param low
+     * @param high
+     * @return
+     * @comment 生成数字的过程中，判断是否符合区间
+     */
     public int strobogrammaticInRange(String low, String high) {
         int count = 0;
 
