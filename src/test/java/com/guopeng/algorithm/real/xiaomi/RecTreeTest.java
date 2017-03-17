@@ -43,17 +43,26 @@ public class RecTreeTest {
         int[] preOrder = {1, 2, 4, 5, 7, 3, 6};
         int[] inOrder = {4, 2, 7, 5, 1, 3, 6};
         BinaryTreeNode root = construct.constructBinaryTree(preOrder, inOrder);
+
         assertEquals("1245736", ins.preOrder(root));
     }
 
     @Test
     public void testInOrder() throws Exception {
-        //TODO: Test goes here... 
+        int[] preOrder = {1, 2, 4, 5, 7, 3, 6};
+        int[] inOrder = {4, 2, 7, 5, 1, 3, 6};
+        BinaryTreeNode root = construct.constructBinaryTree(preOrder, inOrder);
+
+        assertEquals("4275136", ins.inOrder(root));
     }
 
     @Test
     public void testPostOrder() throws Exception {
-        //TODO: Test goes here... 
+        int[] preOrder = {1, 2, 4, 5, 7, 3, 6};
+        int[] inOrder = {4, 2, 7, 5, 1, 3, 6};
+        BinaryTreeNode root = construct.constructBinaryTree(preOrder, inOrder);
+
+        assertEquals("4752631", ins.postOrder(root));
     }
 
 
