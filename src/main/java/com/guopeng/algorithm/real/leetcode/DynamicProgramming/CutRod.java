@@ -9,6 +9,15 @@ public class CutRod {
     private static int[] maxPrice;
     private static int[] leftLength;
 
+    /**
+     * 钢筋的最优切割
+     *
+     * @param n
+     * @param price
+     * @return
+     * @commnet 将钢筋的切割分为两段，第一段不切割 ，第二段使用子问题的最优解
+     * rn = max(pi,rn-i) 1<=i<=n
+     */
     public int cutRod(int n, int[] price) {
         if (maxPrice == null) {
             maxPrice = new int[n + 1];
