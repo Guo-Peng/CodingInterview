@@ -30,11 +30,8 @@ public class ReverseAndRotate {
     private void reverse(char[] sentence, int lo, int hi) {
         if (sentence == null || lo == hi) return;
 
-        while (lo < hi) {
-            exchange(sentence, lo, hi);
-            lo++;
-            hi--;
-        }
+        while (lo < hi)
+            exchange(sentence, lo++, hi--);
     }
 
     private void exchange(char[] sentence, int lo, int hi) {
