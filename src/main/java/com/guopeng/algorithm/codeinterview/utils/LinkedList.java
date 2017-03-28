@@ -1,5 +1,6 @@
 package com.guopeng.algorithm.codeinterview.utils;
 
+
 /**
  * Created by guopeng on 2017/2/9.
  */
@@ -59,6 +60,11 @@ public class LinkedList {
 
         public ListNode(int value) {
             this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
         }
     }
 }
