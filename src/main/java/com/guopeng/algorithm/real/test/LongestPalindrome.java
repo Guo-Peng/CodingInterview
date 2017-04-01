@@ -65,10 +65,15 @@ public class LongestPalindrome {
             }
         }
 
-        int max = 0;
-        for (int num : pos) {
-            if (num > max) max = num;
+        int max = 0, index = -1;
+        for (int i = 0; i < pos.length; i++) {
+            if (pos[i] > max) {
+                max = pos[i];
+                index = i;
+            }
         }
+        // index - max + 1 ~ index + max -1
+        System.out.println(str.substring(index - max + 1, index + max).replace("#", ""));
         return max - 1;
     }
 
@@ -92,7 +97,7 @@ public class LongestPalindrome {
     }
 
     public static void main(String[] args) {
-        String str = "12212321";
+        String str = "XMADAMYX";
         System.out.println(longestPalindrome(str));
     }
 }
