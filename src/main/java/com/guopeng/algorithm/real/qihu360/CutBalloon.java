@@ -34,7 +34,7 @@ public class CutBalloon {
     }
 
     public static void main(String[] args) {
-        int[] arr = {1, 2, 3, 2};
+        int[] arr = {1, 2, 3};
 //        Scanner scanner = new Scanner(System.in);
 //        int n = scanner.nextInt();
 //        int[] arr = new int[n];
