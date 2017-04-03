@@ -13,13 +13,18 @@ public class TreeDepth {
      * @return
      * @comment 子节点的最大深度加1为父节点的最大深度
      */
+//    public int treeDepth(BinaryTreeNode root) {
+//        if (root == null) return 0;
+//
+//        int left = treeDepth(root.left);
+//        int right = treeDepth(root.right);
+//
+//        return Math.max(left + 1, right + 1);
+//    }
     public int treeDepth(BinaryTreeNode root) {
         if (root == null) return 0;
 
-        int left = treeDepth(root.left);
-        int right = treeDepth(root.right);
-
-        return Math.max(left + 1, right + 1);
+        return 1 + Math.max(treeDepth(root.left), treeDepth(root.right));
     }
 
     /**

@@ -21,9 +21,9 @@ public class CountingSort {
             count[num]++;
         for (int i = 1; i < k; i++)
             count[i] += count[i - 1];
-        for (int num : arr) {
-            result[count[num] - 1] = num;
-            count[num]--;
+        for (int i = arr.length - 1; i >= 0; i--) { // 相同的数字中最远的数字放在最远的位置上，稳定
+            result[count[arr[i]] - 1] = arr[i];
+            count[arr[i]]--;
         }
 
         return result;
