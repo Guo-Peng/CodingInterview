@@ -54,12 +54,11 @@ class Main {
                 ws[i] += ws[i - 1];
             for (i = n - 1; i >= 0; i--)
                 sa[--ws[wv[i]]] = y[i];
-            Print.arrPrint(sa);
 
             for (t = x, x = y, y = t, p = 1, x[sa[0]] = 0, i = 1; i < n; i++)
                 x[sa[i]] = cmp(y, sa[i - 1], sa[i], j) ? p - 1 : p++;
 
-//            Print.arrPrint(x);
+            System.out.println(j);
         }
         return sa;
     }

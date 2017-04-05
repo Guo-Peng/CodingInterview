@@ -22,7 +22,7 @@ public class SuffixArray {
             sa[--count[rank[i]]] = i;
 
         int i, l, p;
-        for (l = 1; l < n; l *= 2) {
+        for (l = 1, p = 1; p < n; l *= 2) { // p<n 即可结束，已经没有排名相同的字符串
             for (i = n - l, p = 0; i < n; i++)
                 secRank[p++] = i;
 
@@ -42,6 +42,9 @@ public class SuffixArray {
             // ?数组长度，求rank
             for (tmp = rank, rank = secRank, secRank = tmp, p = 1, rank[sa[0]] = 0, i = 1; i < n; i++)
                 rank[sa[i]] = cmp(secRank, sa[i - 1], sa[i], l) ? p - 1 : p++;
+
+            Print.arrPrint(rank);
+            System.out.println(l);
         }
 
         return sa;
