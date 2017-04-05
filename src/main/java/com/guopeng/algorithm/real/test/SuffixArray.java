@@ -12,7 +12,7 @@ public class SuffixArray {
         int[] secRank = new int[2 * n];
         int[] tmp;
         int[] sa = new int[n];
-        int[] count = new int[n];  // 元素种数不会大于n
+        int[] count = new int[n];
 
         for (int i = 0; i < n; i++)
             count[rank[i]]++;
@@ -22,13 +22,13 @@ public class SuffixArray {
             sa[--count[rank[i]]] = i;
 
         int i, l, p;
-        for (l = 1, p = 1; p < n; l *= 2) { // p<n 即可结束，已经没有排名相同的字符串
+        for (l = 1, p = 1; p < n; l *= 2) {
             for (i = n - l, p = 0; i < n; i++)
                 secRank[p++] = i;
 
             for (i = 0; i < n; i++)
-                if (sa[i] >= l) // sa[i]为排名的索引，跳过索引小于l的位置，将后面的位置依次前移l个位置，并将最后l为置为最小
-                    secRank[p++] = sa[i] - l;  // secRank 为第二个key的排序
+                if (sa[i] >= l)
+                    secRank[p++] = sa[i] - l;
 
             for (i = 0; i < n; i++)
                 count[i] = 0;
@@ -39,7 +39,6 @@ public class SuffixArray {
             for (i = n - 1; i >= 0; i--)
                 sa[--count[rank[secRank[i]]]] = secRank[i];
 
-            // ?数组长度，求rank
             for (tmp = rank, rank = secRank, secRank = tmp, p = 1, rank[sa[0]] = 0, i = 1; i < n; i++)
                 rank[sa[i]] = cmp(secRank, sa[i - 1], sa[i], l) ? p - 1 : p++;
 
