@@ -21,10 +21,12 @@ public class SuffixArray {
             secSa[i] = -1;
         }
 
+
         for (i = 0; i < n; i++) {
             count[rank[i]]++;
-            if (rank[i] > max) max = rank[i] + 1;
+            if (rank[i] > max) max = rank[i];
         }
+        max++;
 
         for (i = 1; i < max; i++)
             count[i] += count[i - 1];
