@@ -19,23 +19,31 @@ public class Terminator {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         n = sc.nextInt();
-        long[][] arr = new long[n][2];
-        int res = 0;
-        Set<Long> set = new HashSet<>();
-        // 获取边界
-        for (int i = 0; i < n; i++) {
-            long a = sc.nextLong();
-            long b = sc.nextLong();
-            arr[i][0] = a;
-            arr[i][1] = arr[i][0] + b;
-            set.add(arr[i][0]);
-            set.add(arr[i][1]);
-        }
+//        long[][] arr = new long[n][2];
+//        int res = 0;
+//        Set<Long> set = new HashSet<>();
+//        // 获取边界
+//        for (int i = 0; i < n; i++) {
+//            long a = sc.nextLong();
+//            long b = sc.nextLong();
+//            arr[i][0] = a;
+//            arr[i][1] = arr[i][0] + b;
+//            set.add(arr[i][0]);
+//            set.add(arr[i][1]);
+//        }
+//
+//        for (Long l : set) {
+//            res = Math.max(terminator(l, arr), res);
+//        }
+//        System.out.println(res);
 
-        for (Long l : set) {
-            res = Math.max(terminator(l, arr), res);
+        int[] ls = new int[n];
+        int[] le = new int[n];
+        for (int i = 0; i < n; i++) {
+            ls[i] = sc.nextInt();
+            le[i] = ls[i] + sc.nextInt();
         }
-        System.out.println(res);
+        System.out.println(terminatorN2(ls, le));
     }
 
     /**
@@ -84,5 +92,30 @@ public class Terminator {
             arr[l][1] = temp;
         }
         return res + s.size() + large;
+    }
+
+    /**
+     * 统一以左侧区间为分割点，组合选择两个切分点
+     * 遍历每个区间得到所有切分点的杀敌数
+     *
+     * @param ls
+     * @param le
+     * @return
+     */
+    public static int terminatorN2(int[] ls, int[] le) {
+        int h = 0;
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+                int hi = 0;
+                for (int k = 0; k < n; k++) {
+                    if ((ls[k] <= ls[i] && le[k] >= ls[i])
+                            || (ls[k] <= ls[j] && le[k] >= ls[j])) {
+                        hi++;
+                    }
+                }
+                if (hi > h) h = hi;
+            }
+        }
+        return h;
     }
 }
