@@ -104,6 +104,19 @@ public class SuffixArray {
         return rank;
     }
 
+    public static int lowestCommonAncestor(String str, int i, int j) {
+        int[] sa = SuffixArray.suffixArray(str);
+        int[] rank = SuffixArray.getRank(sa);
+        int[] height = SuffixArray.getHeight(str, sa, rank);
+
+        int min = Integer.MAX_VALUE;
+        for (int k = Math.min(rank[i], rank[j]) + 1; k < Math.max(rank[i], rank[j]) + 1; k++) {
+            if (height[k] < min)
+                min = height[k];
+        }
+        return min;
+    }
+
 
     public static void main(String[] args) {
         String str = "aabaaaab";
@@ -116,5 +129,6 @@ public class SuffixArray {
         Print.arrPrint(rank);
         System.out.println("height 数组：");
         Print.arrPrint(height);
+        System.out.println(String.format("lca of suffix %d and %d is:%d", 1, 4, lowestCommonAncestor(str, 1, 4)));
     }
 }
