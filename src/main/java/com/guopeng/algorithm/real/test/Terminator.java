@@ -22,6 +22,7 @@ public class Terminator {
         long[][] arr = new long[n][2];
         int res = 0;
         Set<Long> set = new HashSet<>();
+        // 获取边界
         for (int i = 0; i < n; i++) {
             long a = sc.nextLong();
             long b = sc.nextLong();
@@ -37,6 +38,16 @@ public class Terminator {
         System.out.println(res);
     }
 
+    /**
+     * 从区间的中间切割时可以调整至最近的一个边界，杀敌数不变
+     * 得到第一次切割后，建立坦克变化数组，遍历边界得到坦克变化值
+     * 变化值得最大值为第二次切割的杀敌数，第一次的边界切割获得的set为第一次杀敌数
+     * 遍历边界得到最大值即可
+     *
+     * @param first
+     * @param arr
+     * @return
+     */
     public static int terminator(long first, long[][] arr) {
         int res = 0;
         Set<Integer> s = new HashSet<>();
