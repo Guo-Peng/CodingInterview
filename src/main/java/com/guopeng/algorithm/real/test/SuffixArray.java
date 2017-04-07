@@ -68,16 +68,21 @@ public class SuffixArray {
     public static int[] getHeight(String str, int[] sa, int[] rank) {
         int n = sa.length;
         int[] height = new int[n];
+
+        int length = 0, index;
         for (int i = 0; i < n; i++) {
-            if (rank[i] == 0) continue;
+            if (length != 0) length--;
 
-            int j = i >= 1 ? Math.max(0, height[rank[i - 1]] - 1) : 0;
+            if (rank[i] >= 1) index = sa[rank[i] - 1];
+            else continue;
 
-            for (; i + j < n && sa[rank[i] - 1] + j < n; j++) {
-                if (str.charAt(i + j) != str.charAt(sa[rank[i] - 1] + j))
+            while (i + length < n && index + length < n) {
+                if (str.charAt(i + length) != str.charAt(index + length))
                     break;
+                length++;
             }
-            height[rank[i]] = j;
+            height[rank[i]] = length;
+
         }
         return height;
     }
