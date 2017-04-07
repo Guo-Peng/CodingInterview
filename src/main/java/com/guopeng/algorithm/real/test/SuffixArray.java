@@ -57,6 +57,31 @@ public class SuffixArray {
         return sa;
     }
 
+    public static int[] getRank(int[] sa) {
+        int[] rank = new int[sa.length];
+        for (int i = 0; i < sa.length; i++) {
+            rank[sa[i]] = i;
+        }
+        return rank;
+    }
+
+    public static int[] getHeight(String str, int[] sa, int[] rank) {
+        int n = sa.length;
+        int[] height = new int[n];
+        for (int i = 0; i < n; i++) {
+            if (rank[i] == 0) continue;
+
+            int j = i >= 1 ? Math.max(0, height[rank[i - 1]] - 1) : 0;
+
+            for (; i + j < n && sa[rank[i] - 1] + j < n; j++) {
+                if (str.charAt(i + j) != str.charAt(sa[rank[i] - 1] + j))
+                    break;
+            }
+            height[rank[i]] = j;
+        }
+        return height;
+    }
+
     private static boolean cmp(int[] r, int a, int b, int l) {
         return r[a] == r[b] && r[a + l] == r[b + l];
     }
@@ -74,22 +99,17 @@ public class SuffixArray {
         return rank;
     }
 
-    private static int[] getRank(int[] sa) {
-        int[] rank = new int[sa.length];
-        for (int i = 0; i < sa.length; i++) {
-            rank[sa[i]] = i;
-        }
-        return rank;
-    }
-
 
     public static void main(String[] args) {
-        String str = "abcdefg";
+        String str = "aabaaaab";
         int[] sa = suffixArray(str);
         int[] rank = getRank(sa);
+        int[] height = getHeight(str, sa, rank);
         System.out.println("sa 数组：");
         Print.arrPrint(sa);
         System.out.println("rank 数组：");
         Print.arrPrint(rank);
+        System.out.println("height 数组：");
+        Print.arrPrint(height);
     }
 }
