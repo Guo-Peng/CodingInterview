@@ -63,6 +63,16 @@ public class LargestRectangleArea {
         return max;
     }
 
+    /**
+     * 只入栈递增序列，索引为i时出现递减则将所有高度大于h[i]的出栈
+     * 出栈部分的序列中的立柱向两侧扩展的范围仅限于序列之中，之外的立柱都比他们低的所隔开
+     * 因此出栈的序列即是求解最大矩形的孤岛，它们不会干扰到外部
+     * 出栈的部分的最大面积即为(i-k)*h[k],k为出栈的索引
+     * 栈为空则代表当前的栈的第一个立柱要低于0 - i-1的所有立柱，因此其面积为i*h[k]
+     *
+     * @param heights
+     * @return
+     */
     public int largestRectangleArea(int[] heights) {
         int len = heights.length;
         Stack<Integer> s = new Stack<>();
@@ -73,8 +83,9 @@ public class LargestRectangleArea {
                 s.push(i);
             } else {
                 int tp = s.pop();
+                // 注意栈为空的情况
                 maxArea = Math.max(maxArea, heights[tp] * (s.isEmpty() ? i : i - 1 - s.peek()));
-                i--;
+                i--; // 保证i不变直到出栈顶的立柱低于当前立柱
             }
         }
         return maxArea;
