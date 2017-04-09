@@ -2,6 +2,7 @@ package com.guopeng.algorithm.real.leetcode;
 
 import static org.junit.Assert.*;
 
+import com.guopeng.algorithm.real.leetcode.Stack.LargestRectangleArea;
 import org.junit.*;
 import org.junit.rules.ExpectedException;
 
