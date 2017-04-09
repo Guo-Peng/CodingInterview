@@ -1,4 +1,4 @@
-package com.guopeng.algorithm.real.leetcode.Recursion;
+package com.guopeng.algorithm.real.code.Recursion;
 
 import java.util.HashMap;
 

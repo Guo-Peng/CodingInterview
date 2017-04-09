@@ -1,4 +1,4 @@
-package com.guopeng.algorithm.real.leetcode.DynamicProgramming;
+package com.guopeng.algorithm.real.code.DynamicProgramming;
 
 /**
  * Created by guopeng on 2017/4/8.

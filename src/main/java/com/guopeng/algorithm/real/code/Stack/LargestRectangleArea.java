@@ -1,4 +1,4 @@
-package com.guopeng.algorithm.real.leetcode.Stack;
+package com.guopeng.algorithm.real.code.Stack;
 
 import java.util.Stack;
 

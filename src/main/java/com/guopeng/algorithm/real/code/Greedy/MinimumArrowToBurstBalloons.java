@@ -1,4 +1,4 @@
-package com.guopeng.algorithm.real.leetcode.Greedy;
+package com.guopeng.algorithm.real.code.Greedy;
 
 import java.util.*;
 
