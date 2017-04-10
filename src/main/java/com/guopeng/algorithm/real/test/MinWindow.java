@@ -10,6 +10,7 @@ public class MinWindow {
      * 给定一个字符串，求包含所有字符的最短子串长度
      * 定义两个指针，如果没有完全包含则end后移直到全部包含
      * 包含之后移动start直到恰未完全包含
+     * start end 最多移动n，复杂度为o(n)
      *
      * @param str
      * @return
@@ -55,5 +56,6 @@ public class MinWindow {
         System.out.println(minWindow("acbbaca"));
         System.out.println(minWindow("abccbaddac"));
         System.out.println(minWindow("aabcadbbbcca"));
+        System.out.println(minWindow("abcd"));
     }
 }
