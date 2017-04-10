@@ -1,8 +1,8 @@
-package com.guopeng.algorithm.real.leetcode;
+package com.guopeng.algorithm.real.code;
 
 import static org.junit.Assert.*;
 
-import com.guopeng.algorithm.real.leetcode.Stack.LargestRectangleArea;
+import com.guopeng.algorithm.real.code.Stack.LargestRectangleArea;
 import org.junit.*;
 import org.junit.rules.ExpectedException;
 
