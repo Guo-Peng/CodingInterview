@@ -1,12 +1,13 @@
 package com.guopeng.algorithm.real.test;
 
-import java.util.Scanner;
+
+import java.util.*;
 
 /**
- * Created by guopeng on 2017/4/8.
+ * Created by guopeng on 2017/4/6.
  */
+public class Solution {
 
-public class Main {
     public static void main(String[] args) {
 
     }
