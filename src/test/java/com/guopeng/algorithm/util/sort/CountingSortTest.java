@@ -1,8 +1,9 @@
-package com.guopeng.algorithm.util;
+package com.guopeng.algorithm.util.sort;
 
 import static org.junit.Assert.*;
 
 import com.guopeng.algorithm.codeinterview.utils.Print;
+import com.guopeng.algorithm.util.sort.CountingSort;
 import org.junit.*;
 import org.junit.rules.ExpectedException;
 

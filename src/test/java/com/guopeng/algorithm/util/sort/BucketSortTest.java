@@ -1,7 +1,8 @@
-package com.guopeng.algorithm.util;
+package com.guopeng.algorithm.util.sort;
 
 import static org.junit.Assert.*;
 
+import com.guopeng.algorithm.util.sort.BucketSort;
 import org.junit.*;
 import org.junit.rules.ExpectedException;
 

@@ -1,4 +1,4 @@
-package com.guopeng.algorithm.util;
+package com.guopeng.algorithm.util.sort;
 
 import com.guopeng.algorithm.codeinterview.utils.Print;
 

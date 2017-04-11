@@ -1,4 +1,4 @@
-package com.guopeng.algorithm.util;
+package com.guopeng.algorithm.util.collection;
 
 /**
  * Created by guopeng on 17-3-20.

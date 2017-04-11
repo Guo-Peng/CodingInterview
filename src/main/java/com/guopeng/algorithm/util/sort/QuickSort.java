@@ -1,4 +1,4 @@
-package com.guopeng.algorithm.util;
+package com.guopeng.algorithm.util.sort;
 
 
 import static com.guopeng.algorithm.util.Utils.exchange;

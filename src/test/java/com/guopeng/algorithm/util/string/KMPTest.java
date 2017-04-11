@@ -1,26 +1,27 @@
-package com.guopeng.algorithm.util;
+package com.guopeng.algorithm.util.string;
 
 import static org.junit.Assert.*;
 
+import com.guopeng.algorithm.util.string.KMP;
 import org.junit.*;
 import org.junit.rules.ExpectedException;
 
 /**
- * RadixSort Tester.
+ * KMP Tester.
  *
  * @author guopeng
  * @version 1.0
- * @since <pre>四月 3, 2017</pre>
+ * @since <pre>三月 9, 2017</pre>
  */
-public class RadixSortTest {
-    static RadixSort ins;
+public class KMPTest {
+    static KMP ins;
 
     @Rule
     public ExpectedException expectedExc = ExpectedException.none();
 
     @BeforeClass
     public static void setUpBeforeClass() throws Exception {
-        ins = new RadixSort();
+        ins = new KMP();
     }
 
     @AfterClass
@@ -36,18 +37,17 @@ public class RadixSortTest {
     }
 
     @Test
-    public void testRadixSort() throws Exception {
-        int[] arr = {100, 23, 5, 60};
-        assertArrayEquals(new int[]{5, 23, 60, 100}, ins.radixSort(arr, 4));
+    public void testSearch() throws Exception {
+        assertEquals(12, ins.search("AACAA", "AABRAACADABRAACAADABRA"));
     }
 
 
     @Test
-    public void testDim() throws Exception {
+    public void testPatDfa() throws Exception {
         //TODO: Test goes here... 
     /* 
     try { 
-       Method method = RadixSort.getClass().getMethod("dim", int[].class, int.class); 
+       Method method = KMP.getClass().getMethod("patDfa", String.class); 
        method.setAccessible(true); 
        method.invoke(<Object>, <Parameters>); 
     } catch(NoSuchMethodException e) { 

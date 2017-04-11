@@ -1,26 +1,27 @@
-package com.guopeng.algorithm.util; 
+package com.guopeng.algorithm.util.sort;
 
 import static org.junit.Assert.*;
 
+import com.guopeng.algorithm.util.sort.QuickSort;
 import org.junit.*;
 import org.junit.rules.ExpectedException;
 
-/** 
-* ShellSort Tester. 
-* 
-* @author guopeng
-* @since <pre>三月 4, 2017</pre> 
-* @version 1.0 
-*/ 
-public class ShellSortTest { 
-    static ShellSort ins;
-    
+/**
+ * QuickSort Tester.
+ *
+ * @author guopeng
+ * @version 1.0
+ * @since <pre>三月 4, 2017</pre>
+ */
+public class QuickSortTest {
+    static QuickSort ins;
+
     @Rule
     public ExpectedException expectedExc = ExpectedException.none();
-    
+
     @BeforeClass
     public static void setUpBeforeClass() throws Exception {
-        ins = new ShellSort();
+        ins = new QuickSort();
     }
 
     @AfterClass
@@ -36,17 +37,16 @@ public class ShellSortTest {
     }
 
     @Test
-    public void testShellSort() throws Exception {
+    public void testQuickSort() throws Exception {
         int[] arr = {7, 6, 5, 4, 3, 2, 1};
 
-        ins.shellSort(arr);
+        ins.quickSort(arr, 0, arr.length - 1);
         assertArrayEquals(new int[]{1, 2, 3, 4, 5, 6, 7}, arr);
 
         arr = new int[]{5, 7, 4, 6, 9, 2, 1};
 
-        ins.shellSort(arr);
+        ins.quickSort(arr, 0, arr.length - 1);
         assertArrayEquals(new int[]{1, 2, 4, 5, 6, 7, 9}, arr);
-    } 
-
+    }
 
 } 

@@ -1,6 +1,6 @@
 package com.guopeng.algorithm.real.qihu360;
 
-import com.guopeng.algorithm.util.Tuple;
+import com.guopeng.algorithm.util.collection.Tuple;
 /**
  * Created by guopeng on 17-3-22.
  */

@@ -1,26 +1,27 @@
-package com.guopeng.algorithm.util;
+package com.guopeng.algorithm.util.sort;
 
 import static org.junit.Assert.*;
 
+import com.guopeng.algorithm.util.sort.MergeSort;
 import org.junit.*;
 import org.junit.rules.ExpectedException;
 
 /**
- * QuickSort Tester.
+ * MergeSort Tester.
  *
  * @author guopeng
  * @version 1.0
  * @since <pre>三月 4, 2017</pre>
  */
-public class QuickSortTest {
-    static QuickSort ins;
+public class MergeSortTest {
+    static MergeSort ins;
 
     @Rule
     public ExpectedException expectedExc = ExpectedException.none();
 
     @BeforeClass
     public static void setUpBeforeClass() throws Exception {
-        ins = new QuickSort();
+        ins = new MergeSort();
     }
 
     @AfterClass
@@ -36,15 +37,15 @@ public class QuickSortTest {
     }
 
     @Test
-    public void testQuickSort() throws Exception {
+    public void testMergeSort() throws Exception {
         int[] arr = {7, 6, 5, 4, 3, 2, 1};
 
-        ins.quickSort(arr, 0, arr.length - 1);
+        ins.mergeSort(arr, 0, arr.length - 1);
         assertArrayEquals(new int[]{1, 2, 3, 4, 5, 6, 7}, arr);
 
         arr = new int[]{5, 7, 4, 6, 9, 2, 1};
 
-        ins.quickSort(arr, 0, arr.length - 1);
+        ins.mergeSort(arr, 0, arr.length - 1);
         assertArrayEquals(new int[]{1, 2, 4, 5, 6, 7, 9}, arr);
     }
 

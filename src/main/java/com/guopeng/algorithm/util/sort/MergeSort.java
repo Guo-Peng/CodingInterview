@@ -1,4 +1,4 @@
-package com.guopeng.algorithm.util;
+package com.guopeng.algorithm.util.sort;
 
 /**
  * Created by guopeng on 2017/3/4.

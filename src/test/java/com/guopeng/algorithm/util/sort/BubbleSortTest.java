@@ -1,27 +1,27 @@
-package com.guopeng.algorithm.util;
+package com.guopeng.algorithm.util.sort;
 
 import static org.junit.Assert.*;
 
-import com.guopeng.algorithm.codeinterview.utils.Print;
+import com.guopeng.algorithm.util.sort.BubbleSort;
 import org.junit.*;
 import org.junit.rules.ExpectedException;
 
 /**
- * HeapSort Tester.
+ * BubbleSort Tester.
  *
  * @author guopeng
  * @version 1.0
- * @since <pre>三月 6, 2017</pre>
+ * @since <pre>三月 4, 2017</pre>
  */
-public class HeapSortTest {
-    static HeapSort ins;
+public class BubbleSortTest {
+    static BubbleSort ins;
 
     @Rule
     public ExpectedException expectedExc = ExpectedException.none();
 
     @BeforeClass
     public static void setUpBeforeClass() throws Exception {
-        ins = new HeapSort();
+        ins = new BubbleSort();
     }
 
     @AfterClass
@@ -37,15 +37,17 @@ public class HeapSortTest {
     }
 
     @Test
-    public void testHeapSort() throws Exception {
+    public void testBubbleSort() throws Exception {
         int[] arr = {7, 6, 5, 4, 3, 2, 1};
 
-        ins.heapSort(arr);
+        ins.bubbleSort(arr);
         assertArrayEquals(new int[]{1, 2, 3, 4, 5, 6, 7}, arr);
 
         arr = new int[]{5, 7, 4, 6, 9, 2, 1};
 
-        ins.heapSort(arr);
+        ins.bubbleSort(arr);
         assertArrayEquals(new int[]{1, 2, 4, 5, 6, 7, 9}, arr);
     }
+
+
 } 
