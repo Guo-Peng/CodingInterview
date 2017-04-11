@@ -1,4 +1,4 @@
-package com.guopeng.algorithm.real.code;
+package com.guopeng.algorithm.real.code.DynamicProgramming;
 
 import static org.junit.Assert.*;
 
