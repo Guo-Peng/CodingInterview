@@ -29,6 +29,9 @@ public class PostSearchTree {
         int[] arr = {2, 4, 3, 6, 8, 7, 5};
         System.out.println(postSearchTree(arr, 0, arr.length - 1));
 
+        arr = new int[]{5, 7, 6, 9, 11, 10, 8};
+        System.out.println(postSearchTree(arr, 0, arr.length - 1));
+
         arr = new int[]{7, 4, 6, 5};
         System.out.println(postSearchTree(arr, 0, arr.length - 1));
 
