@@ -30,4 +30,9 @@ public class BinaryTreeNode {
 
         return postOrder(root.left) + postOrder(root.right) + root.value;
     }
+
+    @Override
+    public String toString() {
+        return String.format("value: %d", value);
+    }
 }
