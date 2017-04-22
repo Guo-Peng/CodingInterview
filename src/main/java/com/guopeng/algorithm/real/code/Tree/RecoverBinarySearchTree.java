@@ -6,26 +6,17 @@ import com.guopeng.algorithm.codeinterview.utils.BinaryTreeNode;
  * Created by guopeng on 2017/4/22.
  */
 public class RecoverBinarySearchTree {
-    BinaryTreeNode first1 = null;
-    BinaryTreeNode cur1 = null;
-
-    BinaryTreeNode first2 = null;
-    BinaryTreeNode cur2 = null;
+    BinaryTreeNode first = null;
+    BinaryTreeNode cur = null;
 
     BinaryTreeNode pre = new BinaryTreeNode(Integer.MIN_VALUE);
 
     public void recoverTree(BinaryTreeNode root) {
         find(root);
 
-        if (first2 == null) {
-            int tmp = first1.value;
-            first1.value = cur1.value;
-            cur1.value = tmp;
-        } else {
-            int tmp = first1.value;
-            first1.value = cur2.value;
-            cur2.value = tmp;
-        }
+        int tmp = first.value;
+        first.value = cur.value;
+        cur.value = tmp;
     }
 
     public void find(BinaryTreeNode root) {
@@ -34,12 +25,11 @@ public class RecoverBinarySearchTree {
         find(root.left);
 
         if (root.value < pre.value) {
-            if (first1 == null) {
-                first1 = pre;
-                cur1 = root;
+            if (first == null) {
+                first = pre;
+                cur = root;
             } else {
-                first2 = pre;
-                cur2 = root;
+                cur = root;
             }
         }
         pre = root;
