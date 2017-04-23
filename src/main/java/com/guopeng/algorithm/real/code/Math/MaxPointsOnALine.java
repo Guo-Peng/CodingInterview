@@ -1,5 +1,8 @@
 package com.guopeng.algorithm.real.code.Math;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Created by guopeng on 2017/4/22.
  */
@@ -17,9 +20,9 @@ public class MaxPointsOnALine {
         }
     }
 
-    public static int maxPoints(Point[] points) {
+    public static int maxPoints1(Point[] points) {
         int n = points.length;
-        if (n <= 1) return n;
+        if (n <= 2) return n;
 
         int result = 0;
 
@@ -50,6 +53,45 @@ public class MaxPointsOnALine {
 
     private static boolean equal(Point p1, Point p2) {
         return p1.x == p2.x && p1.y == p2.y;
+    }
+
+    public static int maxPoints(Point[] points) {
+        int n = points.length;
+        if (n <= 2) return n;
+
+        int result = 0;
+        for (int i = 0; i < n; i++) {
+            HashMap<Integer, Map<Integer, Integer>> count = new HashMap<>();
+            int max = 0, overlap = 1;
+            for (int j = i + 1; j < n; j++) {
+                if (equal(points[i], points[j])) {
+                    overlap++;
+                    continue;
+                }
+
+                int y = points[j].y - points[i].y;
+                int x = points[j].x - points[i].x;
+                int g = gcd(x, y);
+                if (g != 0) {
+                    x /= g;
+                    y /= g;
+                }
+
+                Map<Integer, Integer> tmp = count.getOrDefault(x, new HashMap<>());
+                int c = tmp.getOrDefault(y, 0);
+                tmp.put(y, c + 1);
+                if (!count.containsKey(x))
+                    count.put(x, tmp);
+                max = Math.max(max, c + 1);
+            }
+
+            result = Math.max(result, max + overlap);
+        }
+        return result;
+    }
+
+    private static int gcd(int a, int b) {
+        return b == 0 ? a : gcd(b, a % b);
     }
 
     public static void main(String[] args) {
