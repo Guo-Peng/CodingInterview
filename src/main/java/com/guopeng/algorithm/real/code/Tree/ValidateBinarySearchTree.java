@@ -4,16 +4,6 @@ package com.guopeng.algorithm.real.code.Tree;
  * Created by guopeng on 2017/4/22.
  */
 public class ValidateBinarySearchTree {
-    class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int val) {
-            this.val = val;
-        }
-    }
-
     long pre = Long.MIN_VALUE;
 
     public boolean isValidBST1(TreeNode root) {
