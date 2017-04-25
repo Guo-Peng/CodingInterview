@@ -69,7 +69,16 @@ public class BackPack {
     }
 
     public static int completePackII(int m, int[] A, int V[]) {
-        return 0;
+        int[] f = new int[m + 1];
+        int n = A.length;
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j <= m; j++) {
+                if (j >= A[i])
+                    f[j] = Math.max(f[j], f[j - A[i]] + V[i]);
+            }
+        }
+
+        return f[m];
     }
 
     public static void main(String[] args) {
@@ -83,5 +92,6 @@ public class BackPack {
         A = new int[]{3, 2, 2};
         V = new int[]{5, 10, 20};
         System.out.println(completePack(5, A, V));
+        System.out.println(completePackII(5, A, V));
     }
 }
