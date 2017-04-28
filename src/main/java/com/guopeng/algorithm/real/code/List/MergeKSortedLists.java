@@ -17,27 +17,20 @@ public class MergeKSortedLists {
     public static ListNode mergeKLists(ListNode[] lists) {
         if (lists == null) return null;
         PriorityQueue<ListNode> queue = new PriorityQueue<>(new com());
-        int count = 0;
         for (ListNode list : lists) {
-            if (list != null) {
-                queue.add(list);
-                count++;
-            }
+            if (list != null) queue.add(list);
         }
-        if (count == 0) return null;
+        if (queue.isEmpty()) return null;
 
-        ListNode head = queue.remove();
-        ListNode cur = head;
-        if (head.next != null) queue.add(head.next);
-        else count--;
-        while (count > 0) {
+        ListNode dummy = new ListNode(0);
+        ListNode cur = dummy;
+        while (!queue.isEmpty()) {
             ListNode tmp = queue.remove();
             cur.next = tmp;
             cur = tmp;
             if (tmp.next != null) queue.add(tmp.next);
-            else count--;
         }
-        return head;
+        return dummy.next;
     }
 
     public static void print(ListNode head) {
@@ -56,5 +49,11 @@ public class MergeKSortedLists {
         n1.next = n2;
         n2.next = n3;
         print(mergeKLists(new ListNode[]{n1}));
+
+        PriorityQueue<Integer> q = new PriorityQueue<>();
+        q.add(3);
+        q.add(5);
+        q.add(2);
+        System.out.println(q);
     }
 }
