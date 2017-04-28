@@ -4,15 +4,6 @@ package com.guopeng.algorithm.real.code.List;
  * Created by guopeng on 2017/4/21.
  */
 public class ReverseLinkedListII {
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-    }
-
     public static ListNode reverseBetween(ListNode head, int m, int n) {
         if (head == null) return head;
         ListNode h = new ListNode(-1);
