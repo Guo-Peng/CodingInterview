@@ -39,6 +39,7 @@ public class RadixSortTest {
     @Test
     public void testRadixSort() throws Exception {
         int[] arr = {100, 23, 5, 60};
+        assertArrayEquals(new int[]{5, 23, 60, 100}, ins.radixSort(arr, 10));
         assertArrayEquals(new int[]{5, 23, 60, 100}, ins.radixSort(arr, 4));
     }
 
