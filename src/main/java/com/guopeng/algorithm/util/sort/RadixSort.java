@@ -15,7 +15,7 @@ public class RadixSort {
         int d = dim(arr, radix);
         int[] count = new int[radix];
 
-        int r = radix;
+        int r = 1;
         for (int i = 0; i < d; i++) {
             // 初始化count数组
             for (int j = 0; j < radix; j++)
@@ -23,7 +23,7 @@ public class RadixSort {
 
             // 计数
             for (int num : tmp[flag])
-                count[num / r % radix]++;
+                count[(num / r) % radix]++;
 
             // 统计不大于i的元素的个数
             for (int j = 1; j < radix; j++)
@@ -38,7 +38,7 @@ public class RadixSort {
             r *= radix;
             flag = 1 - flag;
         }
-        return tmp[1 - flag];
+        return tmp[flag];
     }
 
     private int dim(int[] arr, int radix) {
