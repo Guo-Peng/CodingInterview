@@ -1,6 +1,7 @@
 package com.guopeng.algorithm.real.code.Heap;
 
 import com.guopeng.algorithm.codeinterview.utils.Print;
+import com.guopeng.algorithm.util.collection.MaxQueue;
 import com.guopeng.algorithm.util.collection.MonotoneQueue;
 
 import java.util.Deque;
@@ -16,12 +17,12 @@ public class SlidingWindowMaximum {
         int n = nums.length;
 
         int[] result = new int[n - k + 1];
-        MonotoneQueue queue = new MonotoneQueue(k);
+        MaxQueue queue = new MaxQueue(k, nums);
         for (int i = 0; i < k - 1; i++)
-            queue.add(nums[i]);
+            queue.add(i);
 
         for (int i = k - 1; i < n; i++)
-            result[i - k + 1] = queue.add(nums[i]);
+            result[i - k + 1] = queue.add(i);
 
         return result;
     }
