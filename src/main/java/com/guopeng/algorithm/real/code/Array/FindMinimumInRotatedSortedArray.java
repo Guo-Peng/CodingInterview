@@ -4,6 +4,13 @@ package com.guopeng.algorithm.real.code.Array;
  * Created by guopeng on 17-5-3.
  */
 public class FindMinimumInRotatedSortedArray {
+    /**
+     * 元素大于开头及结尾则一定在右侧
+     * 否则在左侧
+     * 如果元素小于其前一个则该元素就是最小
+     * @param nums
+     * @return
+     */
     public static int findMin(int[] nums) {
         int n = nums.length;
 
