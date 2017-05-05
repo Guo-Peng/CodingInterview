@@ -1,5 +1,6 @@
 package com.guopeng.algorithm.real.code.Heap;
 
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
@@ -9,19 +10,11 @@ import java.util.PriorityQueue;
 public class MedianFinder {
     PriorityQueue<Integer> left;
     PriorityQueue<Integer> right;
-
-    class com implements Comparator<Integer> {
-        @Override
-        public int compare(Integer o1, Integer o2) {
-            return o2 - o1;
-        }
-    }
-
     /**
      * initialize your data structure here.
      */
     public MedianFinder() {
-        left = new PriorityQueue<>(new com());
+        left = new PriorityQueue<>(Collections.reverseOrder());
         right = new PriorityQueue<>();
     }
 
