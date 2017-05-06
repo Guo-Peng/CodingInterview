@@ -45,12 +45,15 @@ public class FindPathTest {
         BinaryTreeNode root = construct.constructBinaryTree(preOrder, inOrder);
 
         ins.findPath(root, 22);
+        ins.findPathII(root, 22);
         System.out.println();
 
         ins.findPath(root, 19);
+        ins.findPathII(root, 19);
         System.out.println();
 
         ins.findPath(root, 12);
+        ins.findPathII(root, 12);
         System.out.println();
 
         ins.findPath(null, 12);
