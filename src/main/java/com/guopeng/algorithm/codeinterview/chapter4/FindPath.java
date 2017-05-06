@@ -39,4 +39,31 @@ public class FindPath {
         findSubPath(root.right, exceptedSum - root.value, path);
         path.pop();
     }
+
+    public void findPathII(BinaryTreeNode root, int exceptedSum) {
+        if (root == null || root.value > exceptedSum) return;
+
+        Stack<BinaryTreeNode> node = new Stack<>();
+        Stack<Integer> val = new Stack<>();
+        int pre = 0;
+        BinaryTreeNode cur = root;
+        while (cur != null) {
+            pre += cur.value;
+            val.push(pre);
+
+            if (cur.left == null && cur.right == null && pre == exceptedSum)
+                System.out.println(cur.value);
+            node.push(cur);
+            cur = cur.left;
+
+            while (cur == null && !node.isEmpty()) {
+                BinaryTreeNode tmp = node.pop();
+                int t = val.pop();
+                cur = tmp.right;
+                if (cur != null)
+                    pre = t;
+            }
+        }
+    }
+
 }
