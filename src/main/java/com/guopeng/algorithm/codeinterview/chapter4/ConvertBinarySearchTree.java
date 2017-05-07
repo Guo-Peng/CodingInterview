@@ -27,19 +27,14 @@ public class ConvertBinarySearchTree {
     }
 
     private BinaryTreeNode convertSubTree(BinaryTreeNode root, BinaryTreeNode lastNode) {
-        if (root == null) return null;
-        if (root.left != null)  //左叶子节点为当前子树的最小节点，将其与前last连接
-            lastNode = convertSubTree(root.left, lastNode); // 得到左子树转化后的最后一个节点
+        if (root == null) return lastNode;//左叶子节点为当前子树的最小节点，将其与前last连接
+        lastNode = convertSubTree(root.left, lastNode); // 得到左子树转化后的最后一个节点
 
         root.left = lastNode;
-        if (lastNode != null)
-            lastNode.right = root;
+        if (lastNode != null) lastNode.right = root;
 
         lastNode = root;
-        if (root.right != null)
-            lastNode = convertSubTree(root.right, lastNode);
-
-        return lastNode;
+        return convertSubTree(root.right, lastNode);
     }
 
     public String printList(BinaryTreeNode root) {
