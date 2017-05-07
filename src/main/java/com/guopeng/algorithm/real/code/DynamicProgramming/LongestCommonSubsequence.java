@@ -19,18 +19,34 @@ public class LongestCommonSubsequence {
                     dp[i][j] = 1 + dp[i - 1][j - 1];
                 else dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
             }
-            Print.arrPrint(dp[i]);
         }
         return dp[l1 - 1][l2 - 1];
+    }
+
+    public static int longestCommonString(String str1, String str2) {
+        int n = str1.length();
+        int m = str2.length();
+        int[][] dp = new int[n + 1][m + 1];
+        int result = 0;
+
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= m; j++) {
+                dp[i][j] = str1.charAt(i - 1) == str2.charAt(j - 1) ? dp[i - 1][j - 1] + 1 : 0;
+                result = Math.max(result, dp[i][j]);
+            }
+        }
+        return result;
     }
 
     public static void main(String[] args) {
         String str1 = "belong";
         String str2 = "cnblogs";
         System.out.println(longestCommonSubsequence(str1, str2));
+        System.out.println(longestCommonString(str1, str2));
 
         str1 = "BDCABA";
         str2 = "ABCBDAB";
         System.out.println(longestCommonSubsequence(str1, str2));
+        System.out.println(longestCommonString(str1, str2));
     }
 }
