@@ -1,7 +1,6 @@
 package com.guopeng.algorithm.util.collection;
 
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.Set;
 
 /**
@@ -40,7 +39,7 @@ public class Graph {
         E++;
     }
 
-    public Iterator<Integer> adj(int v) {
-        return adj[v].iterator();
+    public Set<Integer> adj(int v) {
+        return adj[v];
     }
 }
