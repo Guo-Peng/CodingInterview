@@ -24,7 +24,33 @@ public class LongestPalindromicString {
         return str.substring(low + 1, hi);
     }
 
+    public static String longestPalindromeDP(String s) {
+        if (s == null || s.length() == 0) return "";
+
+        int n = s.length();
+        boolean[][] dp = new boolean[n][n];
+
+        String result = "" + s.charAt(n - 1);
+        for (int i = n - 1; i >= 0; i--) {
+            dp[i][i] = true;
+            if (i < n - 1) dp[i + 1][i] = true;
+
+            for (int j = i + 1; j < n; j++) {
+                if (s.charAt(i) == s.charAt(j))
+                    dp[i][j] = dp[i + 1][j - 1];
+                else dp[i][j] = false;
+
+                if (dp[i][j] && j - i + 1 >= result.length())
+                    result = s.substring(i, j + 1);
+            }
+        }
+
+        return result;
+    }
+
     public static void main(String[] args) {
         System.out.println(longestPalindrome("babad"));
+        System.out.println(longestPalindromeDP("babad"));
+        System.out.println(longestPalindromeDP("cbbd"));
     }
 }
